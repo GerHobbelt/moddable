@@ -2,6 +2,7 @@ import Digital from "pins/digital";
 import Monitor from "monitor";
 import AXP192 from "axp192";
 import SH200Q from "sh200q";
+import MPU6886 from "mpu6886";
 import Timer from "timer";
 
 import config from "mc/config";
@@ -25,7 +26,8 @@ export default function (done) {
 
 	//@@ microphone
 
-	state.accelerometerGyro = new SH200Q;
+	// state.accelerometerGyro = new SH200Q;
+	state.accelerometerGyro = new MPU6886;
 
 	//trace( 'The Temp:',state.accelerometerGyro.sampleTemp(),'\n');
 
