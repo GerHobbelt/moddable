@@ -170,24 +170,24 @@ class Gyro_Accelerometer extends SMBHold {
     sampleXL() {
         this.readBlock(REGISTERS.ACCEL_XOUT_H, 6, this.xlRaw);
         return {
-            x: this.xlView.getInt16(0, true) * this.accelScale,
-            y: this.xlView.getInt16(2, true) * this.accelScale,
-            z: this.xlView.getInt16(4, true) * this.accelScale
+            x: this.xlView.getInt16(0) * this.accelScale,
+            y: this.xlView.getInt16(2) * this.accelScale,
+            z: this.xlView.getInt16(4) * this.accelScale
         }
     }
 
     sampleGyro() {
         this.readBlock(REGISTERS.GYRO_XOUT_H, 6, this.gyroRaw);
         return {
-            x: this.gyroView.getInt16(0, true) * this.gyroScale,
-            y: this.gyroView.getInt16(2, true) * this.gyroScale,
-            z: this.gyroView.getInt16(4, true) * this.gyroScale
+            x: this.gyroView.getInt16(0) * this.gyroScale,
+            y: this.gyroView.getInt16(2) * this.gyroScale,
+            z: this.gyroView.getInt16(4) * this.gyroScale
         }
     }
 
     sampleTemp() {
         this.readBlock(REGISTERS.TEMP_OUT_H, 2, this.tempRaw);
-        return this.tempView.getInt16(0, true) / 326.8 + 25.0
+        return this.tempView.getInt16(0) / 326.8 + 25.0
     }
 
     sample() {
